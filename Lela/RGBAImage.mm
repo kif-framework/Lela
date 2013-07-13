@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License along with thi
 if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-#import <UIKit/UIKit.h>
 #include "RGBAImage.h"
 #include <cstdio>
 #include <cstring>
@@ -52,12 +51,7 @@ RGBAImage* RGBAImage::DownSample() const {
 
 bool RGBAImage::WriteToFile(const char* filename)
 {
-    NSString *fileName = [NSString stringWithFormat:@"%s.png", filename];
-    CGContextRef context = CreateContext();
-    CGImageRef imageRef = CGBitmapContextCreateImage(context);
-    UIImage *image = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    CGContextRelease(context);
+    UIImage *image = Get_UIImage();
     
     NSData *data = UIImagePNGRepresentation(image);
     if (!data) {
@@ -65,6 +59,7 @@ bool RGBAImage::WriteToFile(const char* filename)
         return false;
     }
     
+    NSString *fileName = [NSString stringWithFormat:@"%s.png", filename];
     BOOL result = [data writeToFile:fileName atomically:YES];
 	if(!result)
 		printf("Failed to save to %s.png\n", filename);
@@ -74,20 +69,34 @@ bool RGBAImage::WriteToFile(const char* filename)
 RGBAImage* RGBAImage::ReadFromFile(const char* filename)
 {
     NSString *fileName = [NSString stringWithUTF8String:filename];
-    NSData *data = [NSData dataWithContentsOfFile:fileName];
-    UIImage *image = [UIImage imageWithData:data];
+    UIImage *image = [UIImage imageWithContentsOfFile:fileName];
     
     if (image == nil) {
         printf("Could not open file %s\n", filename);
         return 0;
     }
     
+    return ReadFromUIImage(image);
+}
+
+UIImage *RGBAImage::Get_UIImage()
+{
+    CGContextRef context = CreateContext();
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    UIImage *image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGContextRelease(context);
+    return image;
+}
+
+RGBAImage* RGBAImage::ReadFromUIImage(UIImage *image)
+{
     CGImageRef imageRef = [image CGImage];
     
 	const int w = CGImageGetWidth(imageRef);
 	const int h = CGImageGetHeight(imageRef);
-
-	RGBAImage* result = new RGBAImage(w, h, filename);
+    
+	RGBAImage* result = new RGBAImage(w, h, NULL);
     
     CGContextRef context = result->CreateContext();
     CGContextDrawImage(context, CGRectMake(0, 0, w, h), imageRef);

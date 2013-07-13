@@ -10,12 +10,14 @@
 		4B1B1313FC684640AE4E6A92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32486E44535747F7A93BEA2C /* libPods.a */; };
 		EBF66CE317912360002FFA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66CE217912360002FFA48 /* Foundation.framework */; };
 		EBF66CE817912360002FFA48 /* Lela.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBF66CE717912360002FFA48 /* Lela.h */; };
-		EBF66CEA17912360002FFA48 /* Lela.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CE917912360002FFA48 /* Lela.m */; };
+		EBF66CEA17912360002FFA48 /* Lela.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CE917912360002FFA48 /* Lela.mm */; };
 		EBF66CF9179127C5002FFA48 /* CompareArgs.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CF1179127C5002FFA48 /* CompareArgs.mm */; };
 		EBF66CFA179127C5002FFA48 /* LPyramid.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CF3179127C5002FFA48 /* LPyramid.mm */; };
 		EBF66CFB179127C5002FFA48 /* Metric.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CF5179127C5002FFA48 /* Metric.mm */; };
 		EBF66CFD179127C5002FFA48 /* RGBAImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CF7179127C5002FFA48 /* RGBAImage.mm */; };
 		EBF66D00179128B7002FFA48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66CFF179128B7002FFA48 /* UIKit.framework */; };
+		EBF66D031791391A002FFA48 /* KIFTester+Lela.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF66D021791391A002FFA48 /* KIFTester+Lela.m */; };
+		EBF66D0517913B40002FFA48 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66D0417913B40002FFA48 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,7 +40,7 @@
 		EBF66CE217912360002FFA48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EBF66CE617912360002FFA48 /* Lela-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lela-Prefix.pch"; sourceTree = "<group>"; };
 		EBF66CE717912360002FFA48 /* Lela.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lela.h; sourceTree = "<group>"; };
-		EBF66CE917912360002FFA48 /* Lela.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lela.m; sourceTree = "<group>"; };
+		EBF66CE917912360002FFA48 /* Lela.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Lela.mm; sourceTree = "<group>"; };
 		EBF66CF1179127C5002FFA48 /* CompareArgs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompareArgs.mm; sourceTree = "<group>"; };
 		EBF66CF2179127C5002FFA48 /* CompareArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareArgs.h; sourceTree = "<group>"; };
 		EBF66CF3179127C5002FFA48 /* LPyramid.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LPyramid.mm; sourceTree = "<group>"; };
@@ -49,6 +51,9 @@
 		EBF66CF8179127C5002FFA48 /* RGBAImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBAImage.h; sourceTree = "<group>"; };
 		EBF66CFE179127EB002FFA48 /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
 		EBF66CFF179128B7002FFA48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EBF66D011791391A002FFA48 /* KIFTester+Lela.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIFTester+Lela.h"; sourceTree = "<group>"; };
+		EBF66D021791391A002FFA48 /* KIFTester+Lela.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFTester+Lela.m"; sourceTree = "<group>"; };
+		EBF66D0417913B40002FFA48 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF66D0517913B40002FFA48 /* QuartzCore.framework in Frameworks */,
 				EBF66D00179128B7002FFA48 /* UIKit.framework in Frameworks */,
 				EBF66CE317912360002FFA48 /* Foundation.framework in Frameworks */,
 				4B1B1313FC684640AE4E6A92 /* libPods.a in Frameworks */,
@@ -68,6 +74,7 @@
 		EBF66CD617912360002FFA48 = {
 			isa = PBXGroup;
 			children = (
+				EBF66D0417913B40002FFA48 /* QuartzCore.framework */,
 				EBF66CFF179128B7002FFA48 /* UIKit.framework */,
 				EBF66CE417912360002FFA48 /* Lela */,
 				EBF66CE117912360002FFA48 /* Frameworks */,
@@ -97,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				EBF66CE717912360002FFA48 /* Lela.h */,
-				EBF66CE917912360002FFA48 /* Lela.m */,
+				EBF66CE917912360002FFA48 /* Lela.mm */,
+				EBF66D011791391A002FFA48 /* KIFTester+Lela.h */,
+				EBF66D021791391A002FFA48 /* KIFTester+Lela.m */,
 				EBF66CF0179127B1002FFA48 /* PerceptualDiff */,
 				EBF66CE517912360002FFA48 /* Supporting Files */,
 			);
@@ -214,11 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF66CEA17912360002FFA48 /* Lela.m in Sources */,
+				EBF66CEA17912360002FFA48 /* Lela.mm in Sources */,
 				EBF66CF9179127C5002FFA48 /* CompareArgs.mm in Sources */,
 				EBF66CFA179127C5002FFA48 /* LPyramid.mm in Sources */,
 				EBF66CFB179127C5002FFA48 /* Metric.mm in Sources */,
 				EBF66CFD179127C5002FFA48 /* RGBAImage.mm in Sources */,
+				EBF66D031791391A002FFA48 /* KIFTester+Lela.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

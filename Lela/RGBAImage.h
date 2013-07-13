@@ -18,6 +18,7 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 #define _RGBAIMAGE_H
 
 #include <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
 #include <string>
 
 /** Class encapsulating an image containing R,G,B,A channels.
@@ -56,7 +57,10 @@ public:
    RGBAImage* DownSample() const;
 	
 	bool WriteToFile(const char* filename);
+    UIImage *Get_UIImage();
+    
 	static RGBAImage* ReadFromFile(const char* filename);
+    static RGBAImage* ReadFromUIImage(UIImage *image);
 	
 protected:
 	int Width;
