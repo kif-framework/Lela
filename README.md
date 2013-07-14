@@ -47,24 +47,28 @@ This example assumes you are already familiar with KIF-next and borrows from the
 
 1. Add the Lela header to your test case file:
    
-       #import <Lela/Lela.h>
+    ```objc
+    #import <Lela/Lela.h>
+    ```
    
 2. Add `expectScreenToMatchImageNamed:` steps to your tests.
    
-       - (void)testSuccessfulLogin
-	   {
-	       [tester enterText:@"user@example.com" intoViewWithAccessibilityLabel:@"Login User Name"];
-	       [tester enterText:@"thisismypassword" intoViewWithAccessibilityLabel:@"Login Password"];
-	       [tester tapViewWithAccessibilityLabel:@"Log In"];
-	       
-	       // Test that the login screen looks correct.
-	       [tester expectScreenToMatchImageNamed:@"Filled Out Login Screen"];
-	       
-	       // Verify that the login succeeded
-	       [tester waitForTappableViewWithAccessibilityLabel:@"Welcome"];
-	       
-	       // Test that the welcome screen looks correct.
-	       [tester expectScreenToMatchImageNamed:@"Welcome screen"];
-	   }
+    ```objc
+    - (void)testSuccessfulLogin
+    {
+        [tester enterText:@"user@example.com" intoViewWithAccessibilityLabel:@"Login User Name"];
+        [tester enterText:@"thisismypassword" intoViewWithAccessibilityLabel:@"Login Password"];
+        [tester tapViewWithAccessibilityLabel:@"Log In"];
+        
+        // Test that the login screen looks correct.
+        [tester expectScreenToMatchImageNamed:@"Filled Out Login Screen"];
+        
+        // Verify that the login succeeded
+        [tester waitForTappableViewWithAccessibilityLabel:@"Welcome"];
+        
+        // Test that the welcome screen looks correct.
+        [tester expectScreenToMatchImageNamed:@"Welcome screen"];
+    }
+    ```
 
 You will likely want to add some `waitForTimeInterval:` steps if your views take a moment to stablize.
