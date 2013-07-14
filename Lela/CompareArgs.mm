@@ -144,9 +144,7 @@ bool CompareArgs::Parse_Args(int argc, char **argv)
          ImgB = tmp;
       }
    }
-	if(output_file_name) {
-		ImgDiff = new RGBAImage(ImgA->Get_Width(), ImgA->Get_Height(), output_file_name);
-	}
+    ImgDiff = new RGBAImage(ImgA->Get_Width(), ImgA->Get_Height(), "Result");
 	return true;
 }
 

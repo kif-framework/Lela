@@ -72,15 +72,15 @@ typedef KIFTestStepResult (^KIFTestExecutionBlock)(NSError **error);
  */
 typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error);
 
-@protocol KIFTesterDelegate;
+@protocol KIFTestActorDelegate;
 
-@interface KIFTester : NSObject
+@interface KIFTestActor : NSObject
 
-- (instancetype)initWithFile:(NSString *)file line:(NSInteger)line;
++ (instancetype)actorInFile:(NSString *)file atLine:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate;
 
 @property (nonatomic, readonly) NSString *file;
 @property (nonatomic, readonly) NSInteger line;
-@property (nonatomic, assign) id<KIFTesterDelegate> delegate;
+@property (nonatomic, readonly) id<KIFTestActorDelegate> delegate;
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock timeout:(NSTimeInterval)timeout;
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock;
@@ -100,10 +100,23 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
  */
 + (void)setDefaultTimeout:(NSTimeInterval)newDefaultTimeout;
 
+/*!
+ @abstract Fails the test.
+ @discussion Mostly useful for test debugging or as a placeholder when building new tests.
+ */
+- (void)fail;
+
+/*!
+ @abstract Waits for a certain amount of time before returning.
+ @discussion In general when waiting for the app to get into a known state, it's better to use -waitForTappableViewWithAccessibilityLabel:, however this step may be useful in some situations as well.
+ @param interval The number of seconds to wait before returning.
+ */
+- (void)waitForTimeInterval:(NSTimeInterval)timeInterval;
+
 @end
 
-@protocol KIFTesterDelegate <NSObject>
+@protocol KIFTestActorDelegate <NSObject>
 
-- (void)failWithException:(NSException *)exception;
+- (void)failWithException:(NSException *)exception stopTest:(BOOL)stop;
 
 @end

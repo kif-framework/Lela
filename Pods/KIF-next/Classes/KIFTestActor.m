@@ -7,18 +7,18 @@
 //  See the LICENSE file distributed with this work for the terms under
 //  which Square, Inc. licenses this file to you.
 
-#import "KIFTester.h"
+#import "KIFTestActor.h"
 #import <SenTestingKit/SenTestingKit.h>
 #import <dlfcn.h>
 #import <objc/runtime.h>
 
-@implementation KIFTester
+@implementation KIFTestActor
 
 + (void)load
 {
     @autoreleasepool {
         NSLog(@"KIFTester loaded");
-        [KIFTester _enableAccessibility];
+        [KIFTestActor _enableAccessibility];
         
         if ([[NSProcessInfo processInfo] environment][@"StartKIFManually"]) {
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SenTestToolKey];
@@ -51,14 +51,20 @@
     }
 }
 
-- (instancetype)initWithFile:(NSString *)file line:(NSInteger)line
+- (instancetype)initWithFile:(NSString *)file line:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate
 {
     self = [super init];
     if (self) {
         _file = [file retain];
         _line = line;
+        _delegate = delegate;
     }
     return self;
+}
+
++ (instancetype)actorInFile:(NSString *)file atLine:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate
+{
+    return [[[self alloc] initWithFile:file line:line delegate:delegate] autorelease];
 }
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock timeout:(NSTimeInterval)timeout
@@ -82,7 +88,7 @@
     }
     
     if (result == KIFTestStepResultFailure) {
-        [self.delegate failWithException:[NSException failureInFile:self.file atLine:self.line withDescription:error.localizedDescription]];
+        [self.delegate failWithException:[NSException failureInFile:self.file atLine:self.line withDescription:error.localizedDescription] stopTest:YES];
     }
 }
 
@@ -119,6 +125,25 @@ static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
 + (void)setDefaultTimeout:(NSTimeInterval)newDefaultTimeout;
 {
     KIFTestStepDefaultTimeout = newDefaultTimeout;
+}
+
+#pragma mark Generic tests
+
+- (void)fail
+{
+    [self runBlock:^KIFTestStepResult(NSError **error) {
+        KIFTestCondition(NO, error, @"This test always fails");
+    }];
+}
+
+- (void)waitForTimeInterval:(NSTimeInterval)timeInterval
+{
+    NSTimeInterval startTime = [NSDate timeIntervalSinceReferenceDate];
+    
+    [self runBlock:^KIFTestStepResult(NSError **error) {
+        KIFTestWaitCondition((([NSDate timeIntervalSinceReferenceDate] - startTime) >= timeInterval), error, @"Waiting for time interval to expire.");
+        return KIFTestStepResultSuccess;
+    } timeout:timeInterval + 1];
 }
 
 @end

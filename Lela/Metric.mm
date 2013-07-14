@@ -293,19 +293,6 @@ bool Yee_Compare(CompareArgs &args)
 	char different[100];
 	sprintf(different, "%d pixels are different\n", pixels_failed);
 
-        // Always output image difference if requested.
-	if (args.ImgDiff) {
-		if (args.ImgDiff->WriteToFile(args.ImgDiff->Get_Name().c_str())) {
-			args.ErrorStr += "Wrote difference image to ";
-			args.ErrorStr+= args.ImgDiff->Get_Name();
-			args.ErrorStr += "\n";
-		} else {
-			args.ErrorStr += "Could not write difference image to ";
-			args.ErrorStr+= args.ImgDiff->Get_Name();
-			args.ErrorStr += "\n";
-		}
-	}
-
 	if (pixels_failed < args.ThresholdPixels) {
 		args.ErrorStr = "Images are perceptually indistinguishable\n";
                 args.ErrorStr += different;

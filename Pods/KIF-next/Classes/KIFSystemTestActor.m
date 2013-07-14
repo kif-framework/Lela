@@ -7,27 +7,10 @@
 //  See the LICENSE file distributed with this work for the terms under
 //  which Square, Inc. licenses this file to you.
 
-#import "KIFTester+Generic.h"
+#import "KIFSystemTestActor.h"
 #import <UIKit/UIKit.h>
 
-@implementation KIFTester (Generic)
-
-- (void)fail
-{
-    [self runBlock:^KIFTestStepResult(NSError **error) {
-        KIFTestCondition(NO, error, @"This test always fails");
-    }];
-}
-
-- (void)waitForTimeInterval:(NSTimeInterval)timeInterval
-{
-    NSTimeInterval startTime = [NSDate timeIntervalSinceReferenceDate];
-
-    [self runBlock:^KIFTestStepResult(NSError **error) {
-        KIFTestWaitCondition((([NSDate timeIntervalSinceReferenceDate] - startTime) >= timeInterval), error, @"Waiting for time interval to expire.");
-        return KIFTestStepResultSuccess;
-    } timeout:timeInterval + 1];
-}
+@implementation KIFSystemTestActor
 
 - (void)waitForNotificationName:(NSString*)name object:(id)object
 {

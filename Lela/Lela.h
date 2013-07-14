@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KIFUITestActor+Lela.h"
+
 @class UIImage;
 
 typedef NS_ENUM(NSUInteger, LelaResultImageType) {

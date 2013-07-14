@@ -33,7 +33,7 @@
 
 + (NSString *)directoryForTestRunNamed:(NSString *)name
 {
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 0, YES)[0];
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     return [[path stringByAppendingPathComponent:@"Lela Tests"] stringByAppendingPathComponent:name];
 }
 
@@ -46,7 +46,7 @@
 {
     NSString *fileName;
     switch (type) {
-        case LelaResultImageTypeActual:     fileName = @"Actual";     break;
+        case LelaResultImageTypeActual:     fileName = [self imageNameForScreenNamed:name]; break;
         case LelaResultImageTypeExpected:   fileName = @"Expected";   break;
         case LelaResultImageTypeDifference: fileName = @"Difference"; break;
     }
@@ -119,6 +119,7 @@
     CompareArgs args;
     args.ImgA = RGBAImage::ReadFromUIImage(expected);
     args.ImgB = RGBAImage::ReadFromUIImage(actual);
+    args.ImgDiff = new RGBAImage(args.ImgA->Get_Width(), args.ImgA->Get_Height(), "Output");
     
     BOOL success = Yee_Compare(args);
     

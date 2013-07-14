@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Brian Nickel. All rights reserved.
 //
 
-#import "KIFTester.h"
+#import <KIFUITestActor.h>
 
-@interface KIFTester (Lela)
+@interface KIFUITestActor (Lela)
 
 - (void)expectScreenToMatchImageNamed:(NSString *)name;
 - (void)expectScreenToMatchImageNamed:(NSString *)name options:(NSDictionary *)options;
