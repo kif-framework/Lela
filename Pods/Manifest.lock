@@ -1,10 +1,10 @@
 PODS:
-  - KIF-next (2.0.0pre2)
+  - KIF-next (2.0.0pre4)
 
 DEPENDENCIES:
-  - KIF-next (~> 2.0.0pre2)
+  - KIF-next (~> 2.0.0pre4)
 
 SPEC CHECKSUMS:
-  KIF-next: d77f4d1a1f2f280266ab87d62b2020e9ba39c204
+  KIF-next: 1c59f919ceee5999373c875832101c2fb48b5f59
 
 COCOAPODS: 0.22.2

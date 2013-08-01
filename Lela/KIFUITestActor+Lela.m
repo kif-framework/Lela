@@ -7,6 +7,7 @@
 //
 
 #import "KIFUITestActor+Lela.h"
+#import <NSError-KIFAdditions.h>
 #import "Lela.h"
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -36,24 +37,18 @@
     UIImage *difference = nil;
 
     NSString *runName = [[self class] lelaTestRunName];
-    NSString *failureMessage = nil;
     
     if (!expectedImage) {
         NSString *result = [Lela saveImage:screenshot type:LelaResultImageTypeActual named:name testRun:runName];
         
-        failureMessage = [NSString stringWithFormat:@"Could not find expected image for %@.\nActual result: %@", name, result];
+        [self failWithError:[NSError KIFErrorWithFormat:@"Could not find expected image for %@.\nActual result: %@", name, result] stopTest:NO];
     } else if (![Lela compareExpectedImage:expectedImage toActual:screenshot options:options difference:&difference]) {
         NSString *actualOutput = [Lela saveImage:screenshot type:LelaResultImageTypeActual named:name testRun:runName];
         NSString *expectedOutput = [Lela saveImage:expectedImage type:LelaResultImageTypeExpected named:name testRun:runName];
         NSString *differenceOutput = [Lela saveImage:difference type:LelaResultImageTypeDifference named:name testRun:runName];
         
-        failureMessage = [NSString stringWithFormat:@"Screen does not match expected image for %@.\nExpected result: %@\nActual result:   %@\nDifference:      %@", name, expectedOutput, actualOutput, differenceOutput];
-    } else {
-        // Success!
-        return;
+        [self failWithError:[NSError KIFErrorWithFormat:@"Screen does not match expected image for %@.\nExpected result: %@\nActual result:   %@\nDifference:      %@", name, expectedOutput, actualOutput, differenceOutput] stopTest:NO];
     }
-    
-    [self.delegate failWithException:[NSException failureInFile:self.file atLine:self.line withDescription:@"%@", failureMessage] stopTest:NO];
 }
 
 @end

@@ -47,7 +47,7 @@
     [tester deleteFirstItem];
     
     // Here we have a good old fashioned KIF failure.
-    [tester waitForViewWithAccessibilityLabel:@"Some view that doesn't exist"];
+    [[tester usingTimeout:1] waitForViewWithAccessibilityLabel:@"Some view that doesn't exist"];
     [tester waitForViewWithAccessibilityLabel:@"This won't get called"];
 }
 

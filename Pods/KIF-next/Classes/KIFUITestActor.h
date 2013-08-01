@@ -10,7 +10,7 @@
 #import "KIFTestActor.h"
 #import <UIKit/UIKit.h>
 
-#define tester [KIFUITestActor actorInFile:[NSString stringWithUTF8String:__FILE__] atLine:__LINE__ delegate:self]
+#define tester KIFActorWithClass(KIFUITestActor)
 
 /*!
  @enum KIFSwipeDirection
@@ -59,7 +59,7 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  If the view you want to wait for is tappable, use the -waitForTappableViewWithAccessibilityLabel: methods instead as they provide a more strict test.
  @param label The accessibility label of the element to wait for.
  */
-- (void)waitForViewWithAccessibilityLabel:(NSString *)label;
+- (UIView *)waitForViewWithAccessibilityLabel:(NSString *)label;
 
 /*!
  @abstract Waits until a view or accessibility element is present.
@@ -69,7 +69,7 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @param label The accessibility label of the element to wait for.
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
  */
-- (void)waitForViewWithAccessibilityLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
+- (UIView *)waitForViewWithAccessibilityLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
 
 
 /*!
@@ -82,7 +82,7 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
  @result A configured test step.
  */
-- (void)waitForViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
+- (UIView *)waitForViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
 
 /*!
  @abstract Waits until a view or accessibility element is no longer present.
@@ -113,7 +113,7 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @discussion The view or accessibility element with the given label is found in the view hierarchy. If the element isn't found or isn't currently tappable, then the step will attempt to wait until it is. Whether or not a view is tappable is based on -[UIView hitTest:].
  @param label The accessibility label of the element to wait for.
  */
-- (void)waitForTappableViewWithAccessibilityLabel:(NSString *)label;
+- (UIView *)waitForTappableViewWithAccessibilityLabel:(NSString *)label;
 
 /*!
  @abstract Waits until a view or accessibility element is present and available for tapping.
@@ -121,7 +121,7 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @param label The accessibility label of the element to wait for.
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
  */
-- (void)waitForTappableViewWithAccessibilityLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
+- (UIView *)waitForTappableViewWithAccessibilityLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
 
 /*!
  @abstract Waits until a view or accessibility element is present and available for tapping.
@@ -130,7 +130,20 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @param value The accessibility value of the element to tap.
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
  */
-- (void)waitForTappableViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
+- (UIView *)waitForTappableViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
+
+
+/*
+ @abstract Waits for an accessibility element and its containing view based on a variety of criteria.
+ @discussion This method provides a more verbose API for achieving what is available in the waitForView/waitForTappableView family of methods, exposing both the found element and its containing view.
+ @param element To be populated with the matching accessibility element when found.  Can be NULL.
+ @param view To be populated with the matching view when found.  Can be NULL.
+ @param label The accessibility label of the element to wait for.
+ @param value The accessibility value of the element to tap.
+ @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
+ @param mustBeTappable If YES, only an element that can be tapped on will be returned.
+ */
+- (void)waitForAccessibilityElement:(UIAccessibilityElement **)element view:(out UIView **)view withLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits tappable:(BOOL)mustBeTappable;
 
 /*!
  @abstract Taps a particular view in the view hierarchy.
@@ -157,6 +170,14 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
  @param traits The accessibility traits of the element to tap. Elements that do not include at least these traits are ignored.
  */
 - (void)tapViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
+
+/*!
+ @abstract Taps a particular view in the view heirarchy.
+ @discussion Unlike the -tapViewWithAccessibilityLabel: family of methods, this method allows you to tap an arbitrary element.  Combined with -waitForAccessibilityElement:view:withLabel:value:traits:tappable: or +[UIAccessibilityElement accessibilityElement:view:withLabel:value:traits:tappable:error:] this provides an opportunity for more complex logic.
+ @param element The accessibility element to tap.
+ @param view The view containing the accessibility element.
+ */
+- (void)tapAccessibilityElement:(UIAccessibilityElement *)element inView:(UIView *)view;
 
 /*!
  @abstract Taps the screen at a particular point.
@@ -261,6 +282,8 @@ static inline KIFDisplacement KIFDisplacementForSwipingInDirection(KIFSwipeDirec
 /*!
  @abstract Taps the row at IndexPath in a view with the given label.
  @discussion This step will get the view with the specified accessibility label and tap the row at indexPath.
+ 
+ For cases where you may need to work from the end of a table view rather than the beginning, negative sections count back from the end of the table view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
  @param tableViewLabel Accessibility label of the table view.
  @param indexPath Index path of the row to tap.
  */

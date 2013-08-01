@@ -8,6 +8,7 @@
 //  which Square, Inc. licenses this file to you.
 
 #import "KIFTestActor.h"
+#import "NSError-KIFAdditions.h"
 #import <SenTestingKit/SenTestingKit.h>
 #import <dlfcn.h>
 #import <objc/runtime.h>
@@ -58,6 +59,7 @@
         _file = [file retain];
         _line = line;
         _delegate = delegate;
+        _executionBlockTimeout = [[self class] defaultTimeout];
     }
     return self;
 }
@@ -65,6 +67,12 @@
 + (instancetype)actorInFile:(NSString *)file atLine:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate
 {
     return [[[self alloc] initWithFile:file line:line delegate:delegate] autorelease];
+}
+
+- (instancetype)usingTimeout:(NSTimeInterval)executionBlockTimeout
+{
+    self.executionBlockTimeout = executionBlockTimeout;
+    return self;
 }
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock timeout:(NSTimeInterval)timeout
@@ -78,8 +86,7 @@
     }
     
     if (result == KIFTestStepResultWait) {
-        NSDictionary *userInfo = @{NSUnderlyingErrorKey: error, NSLocalizedDescriptionKey: [NSString stringWithFormat:@"The step timed out after %.2f seconds: %@", timeout, error.localizedDescription]};
-        error = [NSError errorWithDomain:@"KIFTest" code:KIFTestStepResultFailure userInfo:userInfo];
+        error = [NSError KIFErrorWithUnderlyingError:error format:@"The step timed out after %.2f seconds: %@", timeout, error.localizedDescription];
         result = KIFTestStepResultFailure;
     }
     
@@ -88,13 +95,13 @@
     }
     
     if (result == KIFTestStepResultFailure) {
-        [self.delegate failWithException:[NSException failureInFile:self.file atLine:self.line withDescription:error.localizedDescription] stopTest:YES];
+        [self failWithError:error stopTest:YES];
     }
 }
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock
 {
-    [self runBlock:executionBlock complete:completionBlock timeout:[[self class] defaultTimeout]];
+    [self runBlock:executionBlock complete:completionBlock timeout:self.executionBlockTimeout];
 }
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock timeout:(NSTimeInterval)timeout
@@ -136,6 +143,11 @@ static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
     }];
 }
 
+- (void)failWithError:(NSError *)error stopTest:(BOOL)stopTest
+{
+    [self.delegate failWithException:[NSException failureInFile:self.file atLine:self.line withDescription:error.localizedDescription] stopTest:stopTest];
+}
+
 - (void)waitForTimeInterval:(NSTimeInterval)timeInterval
 {
     NSTimeInterval startTime = [NSDate timeIntervalSinceReferenceDate];
@@ -144,6 +156,15 @@ static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
         KIFTestWaitCondition((([NSDate timeIntervalSinceReferenceDate] - startTime) >= timeInterval), error, @"Waiting for time interval to expire.");
         return KIFTestStepResultSuccess;
     } timeout:timeInterval + 1];
+}
+
+@end
+
+@implementation KIFTestActor (Delegate)
+
+- (void)failWithException:(NSException *)exception stopTest:(BOOL)stop
+{
+    [self.delegate failWithException:exception stopTest:YES];
 }
 
 @end

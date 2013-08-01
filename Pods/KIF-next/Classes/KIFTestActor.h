@@ -9,6 +9,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define KIFActorWithClass(clazz) [clazz actorInFile:[NSString stringWithUTF8String:__FILE__] atLine:__LINE__ delegate:self]
+
 /*!
  @define KIFTestCondition
  @abstract Tests a condition and returns a failure result if the condition isn't true.
@@ -81,6 +83,9 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 @property (nonatomic, readonly) NSString *file;
 @property (nonatomic, readonly) NSInteger line;
 @property (nonatomic, readonly) id<KIFTestActorDelegate> delegate;
+@property (nonatomic) NSTimeInterval executionBlockTimeout;
+
+- (instancetype)usingTimeout:(NSTimeInterval)executionBlockTimeout;
 
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock timeout:(NSTimeInterval)timeout;
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock;
@@ -106,6 +111,8 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
  */
 - (void)fail;
 
+- (void)failWithError:(NSError *)error stopTest:(BOOL)stopTest;
+
 /*!
  @abstract Waits for a certain amount of time before returning.
  @discussion In general when waiting for the app to get into a known state, it's better to use -waitForTappableViewWithAccessibilityLabel:, however this step may be useful in some situations as well.
@@ -119,4 +126,7 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 
 - (void)failWithException:(NSException *)exception stopTest:(BOOL)stop;
 
+@end
+
+@interface KIFTestActor (Delegate) <KIFTestActorDelegate>
 @end

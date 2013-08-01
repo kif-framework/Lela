@@ -86,7 +86,6 @@
 		EBF66CF3179127C5002FFA48 /* LPyramid.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LPyramid.mm; sourceTree = "<group>"; };
 		EBF66CF4179127C5002FFA48 /* LPyramid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPyramid.h; sourceTree = "<group>"; };
 		EBF66CF5179127C5002FFA48 /* Metric.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Metric.mm; sourceTree = "<group>"; };
-		EBF66CF6179127C5002FFA48 /* PerceptualDiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerceptualDiff.cpp; sourceTree = "<group>"; };
 		EBF66CF7179127C5002FFA48 /* RGBAImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBAImage.mm; sourceTree = "<group>"; };
 		EBF66CF8179127C5002FFA48 /* RGBAImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBAImage.h; sourceTree = "<group>"; };
 		EBF66CFE179127EB002FFA48 /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -224,7 +223,6 @@
 		EBF66CF0179127B1002FFA48 /* PerceptualDiff */ = {
 			isa = PBXGroup;
 			children = (
-				EBF66CF6179127C5002FFA48 /* PerceptualDiff.cpp */,
 				EBF66CF2179127C5002FFA48 /* CompareArgs.h */,
 				EBF66CF1179127C5002FFA48 /* CompareArgs.mm */,
 				EBF66CF4179127C5002FFA48 /* LPyramid.h */,
