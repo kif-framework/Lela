@@ -9,7 +9,7 @@
 #import "KIFUITestActor+Lela.h"
 #import <NSError-KIFAdditions.h>
 #import "Lela.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 @implementation KIFUITestActor (Lela)
 

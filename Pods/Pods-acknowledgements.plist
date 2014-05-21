@@ -30,7 +30,7 @@ A full list of contributors is available at https://github.com/square/KIF/contri
    See the License for the specific language governing permissions and
    limitations under the License.</string>
 			<key>Title</key>
-			<string>KIF-next</string>
+			<string>KIF</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

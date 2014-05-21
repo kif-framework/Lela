@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## KIF-next
+## KIF
 
 KIF
 Copyright 2011 Square, Inc.

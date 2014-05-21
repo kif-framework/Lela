@@ -6,10 +6,15 @@
 // project.
 
 
-// KIF-next
-#define COCOAPODS_POD_AVAILABLE_KIF_next
-// This library does not follow semantic-versioning,
-// so we were not able to define version macros.
-// Please contact the author.
-// Version: 2.0.0pre4.
+// KIF
+#define COCOAPODS_POD_AVAILABLE_KIF
+#define COCOAPODS_VERSION_MAJOR_KIF 3
+#define COCOAPODS_VERSION_MINOR_KIF 0
+#define COCOAPODS_VERSION_PATCH_KIF 4
+
+// KIF/XCTest
+#define COCOAPODS_POD_AVAILABLE_KIF_XCTest
+#define COCOAPODS_VERSION_MAJOR_KIF_XCTest 3
+#define COCOAPODS_VERSION_MINOR_KIF_XCTest 0
+#define COCOAPODS_VERSION_PATCH_KIF_XCTest 4
 

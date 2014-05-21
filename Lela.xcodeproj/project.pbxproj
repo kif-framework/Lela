@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1D91CAF2AD204AD4A10FC43D /* libPods-DemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E647C84CE71B475193A88871 /* libPods-DemoTests.a */; };
 		4B1B1313FC684640AE4E6A92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32486E44535747F7A93BEA2C /* libPods.a */; };
+		EB10E944192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png in Resources */ = {isa = PBXBuildFile; fileRef = EB10E943192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png */; };
+		EB10E946192D489D00D519D8 /* Entry added-320x568@2x~iphone,iOS7.1.png in Resources */ = {isa = PBXBuildFile; fileRef = EB10E945192D489D00D519D8 /* Entry added-320x568@2x~iphone,iOS7.1.png */; };
+		EB10E948192D48D600D519D8 /* Entry added-320x480@2x~iphone,iOS7.1.png in Resources */ = {isa = PBXBuildFile; fileRef = EB10E947192D48D600D519D8 /* Entry added-320x480@2x~iphone,iOS7.1.png */; };
+		EB10E94A192D48F100D519D8 /* Home screen-320x480@2x~iphone,iOS7.1.png in Resources */ = {isa = PBXBuildFile; fileRef = EB10E949192D48F100D519D8 /* Home screen-320x480@2x~iphone,iOS7.1.png */; };
 		EBF66CE317912360002FFA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66CE217912360002FFA48 /* Foundation.framework */; };
 		EBF66CE817912360002FFA48 /* Lela.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBF66CE717912360002FFA48 /* Lela.h */; };
 		EBF66CEA17912360002FFA48 /* Lela.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBF66CE917912360002FFA48 /* Lela.mm */; };
@@ -31,7 +35,6 @@
 		EBF66DBD17914B35002FFA48 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF66DBB17914B35002FFA48 /* MainStoryboard.storyboard */; };
 		EBF66DC017914B35002FFA48 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF66DBF17914B35002FFA48 /* MasterViewController.m */; };
 		EBF66DC317914B35002FFA48 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF66DC217914B35002FFA48 /* DetailViewController.m */; };
-		EBF66DCB17914B35002FFA48 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66DCA17914B35002FFA48 /* SenTestingKit.framework */; };
 		EBF66DCC17914B35002FFA48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66DA417914B35002FFA48 /* UIKit.framework */; };
 		EBF66DCD17914B35002FFA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF66CE217912360002FFA48 /* Foundation.framework */; };
 		EBF66DD517914B35002FFA48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBF66DD317914B35002FFA48 /* InfoPlist.strings */; };
@@ -76,6 +79,11 @@
 		7917DF38C6A34D56BAE08341 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.xcconfig"; path = "Pods/Pods-DemoTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		E647C84CE71B475193A88871 /* libPods-DemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB10E941192D438500D519D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EB10E943192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home screen-320x568@2x~iphone,iOS7.1.png"; path = "../../../../Library/Application Support/iPhone Simulator/7.1/Applications/FAA60D4C-74D4-4770-8DAB-E634CEF4A334/Documents/Lela Tests/2014-05-21T13:42:57/Home screen-320x568@2x~iphone,iOS7.1/Home screen-320x568@2x~iphone,iOS7.1.png"; sourceTree = "<group>"; };
+		EB10E945192D489D00D519D8 /* Entry added-320x568@2x~iphone,iOS7.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Entry added-320x568@2x~iphone,iOS7.1.png"; path = "../../../../Library/Application Support/iPhone Simulator/7.1/Applications/FAA60D4C-74D4-4770-8DAB-E634CEF4A334/Documents/Lela Tests/2014-05-21T13:42:57/Entry added-320x568@2x~iphone,iOS7.1/Entry added-320x568@2x~iphone,iOS7.1.png"; sourceTree = "<group>"; };
+		EB10E947192D48D600D519D8 /* Entry added-320x480@2x~iphone,iOS7.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Entry added-320x480@2x~iphone,iOS7.1.png"; path = "../../../../Library/Application Support/iPhone Simulator/7.1/Applications/FAA60D4C-74D4-4770-8DAB-E634CEF4A334/Documents/Lela Tests/2014-05-21T13:48:47/Entry added-320x480@2x~iphone,iOS7.1/Entry added-320x480@2x~iphone,iOS7.1.png"; sourceTree = "<group>"; };
+		EB10E949192D48F100D519D8 /* Home screen-320x480@2x~iphone,iOS7.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home screen-320x480@2x~iphone,iOS7.1.png"; path = "../../../../Library/Application Support/iPhone Simulator/7.1/Applications/FAA60D4C-74D4-4770-8DAB-E634CEF4A334/Documents/Lela Tests/2014-05-21T13:48:47/Home screen-320x480@2x~iphone,iOS7.1/Home screen-320x480@2x~iphone,iOS7.1.png"; sourceTree = "<group>"; };
 		EBF66CDF17912360002FFA48 /* libLela.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLela.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF66CE217912360002FFA48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EBF66CE617912360002FFA48 /* Lela-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lela-Prefix.pch"; sourceTree = "<group>"; };
@@ -110,8 +118,7 @@
 		EBF66DBF17914B35002FFA48 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		EBF66DC117914B35002FFA48 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		EBF66DC217914B35002FFA48 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		EBF66DC917914B35002FFA48 /* DemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBF66DCA17914B35002FFA48 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EBF66DC917914B35002FFA48 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF66DD217914B35002FFA48 /* DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoTests-Info.plist"; sourceTree = "<group>"; };
 		EBF66DD417914B35002FFA48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EBF66DD717914B35002FFA48 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
@@ -149,7 +156,6 @@
 			files = (
 				EBF66DE317914C9E002FFA48 /* libc++.dylib in Frameworks */,
 				EBF66DE117914C8E002FFA48 /* libstdc++.dylib in Frameworks */,
-				EBF66DCB17914B35002FFA48 /* SenTestingKit.framework in Frameworks */,
 				EBF66DCC17914B35002FFA48 /* UIKit.framework in Frameworks */,
 				EBF66DCD17914B35002FFA48 /* Foundation.framework in Frameworks */,
 				1D91CAF2AD204AD4A10FC43D /* libPods-DemoTests.a in Frameworks */,
@@ -181,7 +187,7 @@
 			children = (
 				EBF66CDF17912360002FFA48 /* libLela.a */,
 				EBF66DA317914B35002FFA48 /* Demo.app */,
-				EBF66DC917914B35002FFA48 /* DemoTests.octest */,
+				EBF66DC917914B35002FFA48 /* DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,11 +195,11 @@
 		EBF66CE117912360002FFA48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB10E941192D438500D519D8 /* XCTest.framework */,
 				EBF66CE217912360002FFA48 /* Foundation.framework */,
 				32486E44535747F7A93BEA2C /* libPods.a */,
 				EBF66DA417914B35002FFA48 /* UIKit.framework */,
 				EBF66DA717914B35002FFA48 /* CoreGraphics.framework */,
-				EBF66DCA17914B35002FFA48 /* SenTestingKit.framework */,
 				E647C84CE71B475193A88871 /* libPods-DemoTests.a */,
 			);
 			name = Frameworks;
@@ -268,7 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				EBF66DEA17914EF8002FFA48 /* Home screen-320x480@1x~iphone,iOS6.1.png */,
+				EB10E949192D48F100D519D8 /* Home screen-320x480@2x~iphone,iOS7.1.png */,
+				EB10E943192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png */,
 				EBF66DEC1791512C002FFA48 /* Entry added-320x480@1x~iphone,iOS6.1.png */,
+				EB10E947192D48D600D519D8 /* Entry added-320x480@2x~iphone,iOS7.1.png */,
+				EB10E945192D489D00D519D8 /* Entry added-320x568@2x~iphone,iOS7.1.png */,
 				EBF66DD717914B35002FFA48 /* DemoTests.m */,
 				EBF66DD117914B35002FFA48 /* Supporting Files */,
 			);
@@ -341,8 +351,8 @@
 			);
 			name = DemoTests;
 			productName = DemoTests;
-			productReference = EBF66DC917914B35002FFA48 /* DemoTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = EBF66DC917914B35002FFA48 /* DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -350,6 +360,7 @@
 		EBF66CD717912360002FFA48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Brian Nickel";
 			};
@@ -390,8 +401,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF66DD517914B35002FFA48 /* InfoPlist.strings in Resources */,
+				EB10E94A192D48F100D519D8 /* Home screen-320x480@2x~iphone,iOS7.1.png in Resources */,
+				EB10E946192D489D00D519D8 /* Entry added-320x568@2x~iphone,iOS7.1.png in Resources */,
+				EB10E944192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png in Resources */,
 				EBF66DEB17914EF8002FFA48 /* Home screen-320x480@1x~iphone,iOS6.1.png in Resources */,
 				EBF66DED1791512C002FFA48 /* Entry added-320x480@1x~iphone,iOS6.1.png in Resources */,
+				EB10E948192D48D600D519D8 /* Entry added-320x480@2x~iphone,iOS7.1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,12 +672,15 @@
 			baseConfigurationReference = 906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "DemoTests/DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -671,12 +689,15 @@
 			baseConfigurationReference = 906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "DemoTests/DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
