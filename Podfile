@@ -1,5 +1,5 @@
-pod 'KIF-next', '~> 2.0.0pre4'
+pod 'KIF', '~> 3.0.4'
 
 target 'DemoTests' do
-    pod 'KIF-next', '~> 2.0.0pre4'
+    pod 'KIF', '~> 3.0.4'
 end

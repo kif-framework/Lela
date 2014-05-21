@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Lela/Lela.h', 'Lela/KIFUITestActor+Lela.h'
   s.frameworks   = 'UIKit', 'QuartzCore', 'CoreGraphics', 'SenTestingKit'
   s.libraries    = 'c++', 'stdc++'
-  s.dependency 'KIF-next', '~> 2.0.0pre4'
+  s.dependency 'KIF', '~> 3.0.4'
   s.requires_arc = true
 end
