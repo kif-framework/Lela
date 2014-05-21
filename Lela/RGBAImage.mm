@@ -93,8 +93,8 @@ RGBAImage* RGBAImage::ReadFromUIImage(UIImage *image)
 {
     CGImageRef imageRef = [image CGImage];
     
-	const int w = CGImageGetWidth(imageRef);
-	const int h = CGImageGetHeight(imageRef);
+	const int w = (int)CGImageGetWidth(imageRef);
+	const int h = (int)CGImageGetHeight(imageRef);
     
 	RGBAImage* result = new RGBAImage(w, h, NULL);
     
