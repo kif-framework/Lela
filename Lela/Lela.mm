@@ -120,6 +120,7 @@
     args.ImgA = RGBAImage::ReadFromUIImage(expected);
     args.ImgB = RGBAImage::ReadFromUIImage(actual);
     args.ImgDiff = new RGBAImage(args.ImgA->Get_Width(), args.ImgA->Get_Height(), "Output");
+    args.FieldOfView = 0.0;
     
     BOOL success = Yee_Compare(args);
     
