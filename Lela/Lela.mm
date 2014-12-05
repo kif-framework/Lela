@@ -143,6 +143,7 @@
     args.ImgA = RGBAImage::ReadFromUIImage(expected);
     args.ImgB = RGBAImage::ReadFromUIImage(actual);
     args.ImgDiff = new RGBAImage(args.ImgA->Get_Width(), args.ImgA->Get_Height(), "Output");
+    args.ThresholdPixels = [options[LECompareOptionThresholdPixels] unsignedIntValue];
     
     BOOL success = Yee_Compare(args);
     
