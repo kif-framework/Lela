@@ -28,7 +28,7 @@
     }
     NSString *version = [[UIDevice currentDevice] systemVersion];
     
-    return [NSString stringWithFormat:@"%@-%dx%d@%dx~%@,iOS%@", screenName, (int)screenSize.width, (int)screenSize.height, (int)roundf(scale), idiom, version];
+    return [NSString stringWithFormat:@"%@-%dx%d@%dx-%@,iOS%@", screenName, (int)screenSize.width, (int)screenSize.height, (int)roundf(scale), idiom, version];
 }
 
 + (NSString *)directoryForTestRunNamed:(NSString *)name
