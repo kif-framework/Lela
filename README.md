@@ -3,7 +3,7 @@ Lela iOS Perceptual Difference Testing Framework
 
 KIF is great.  KIF lets you keep your app functional, encourages you to use accessibility, etc.  One weakness KIF has is that it does not tell you if your app has *visually* changed.  You still need testers manually going through, eyeballing your app and asking "Does this match the wireframes?"
 
-**Lela is here to help KIF out!** Lela, which stands for Less Eyeballing Large Apps, is a library built on top of KIF-next which tells you if your screens have changed.  Lela has distinct image names for screen size, density, OS version, and device idiom, meaning your can plug a bunch of different devices into your CI server and Lela can validate all of them.
+**Lela is here to help KIF out!** Lela, which stands for Less Eyeballing Large Apps, is a library built on top of KIF which tells you if your screens have changed.  Lela has distinct image names for screen size, density, OS version, and device idiom, meaning your can plug a bunch of different devices into your CI server and Lela can validate all of them.
 
 **Important Note:** Lela uses GPL licensed code from [Perceptual Image Diff](http://pdiff.sourceforge.net). In most cases this shouldn't matter since you're not distributing your tests, but if you fork the project or plan on packaging it in a product that's something keep that in mind.
 
@@ -45,7 +45,7 @@ end
 Example
 -------
 
-This example assumes you are already familiar with KIF-next and borrows from the example on that project.  There are really only two things you need to do.
+This example assumes you are already familiar with KIF and borrows from the example on that project.  There are really only two things you need to do.
 
 1. Add the Lela header to your test case file:
 
