@@ -8,28 +8,10 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kif-framework/Lela.git", :tag => "v0.2.1" }
   s.platform     = :ios, '5.1'
   s.public_header_files = 'Lela/Lela.h', 'Lela/KIFUITestActor+Lela.h'
-  s.frameworks   = 'UIKit', 'QuartzCore', 'CoreGraphics'
+  s.frameworks   = 'UIKit', 'QuartzCore', 'CoreGraphics', 'XCTest'
   s.libraries    = 'c++', 'stdc++'
   s.requires_arc = true
 
-  s.default_subspec = 'XCTest'
-
-  s.subspec 'OCUnit' do |sentest|
-    sentest.source_files = 'Lela/**/*.{h,m,mm}'
-    sentest.dependency 'KIF/OCUnit', '~> 3.0'
-
-    # I would expect the following to be inherited but lint disagrees.
-    sentest.framework = 'SenTestingKit'
-    sentest.xcconfig = { 'OTHER_CFLAGS' => '-DKIF_SENTEST' }
-  end
-
-  s.subspec 'XCTest' do |xctest|
-    xctest.source_files = 'Lela/**/*.{h,m,mm}'
-    xctest.dependency 'KIF/XCTest', '~> 3.0'
-
-    # I would expect the following to be inherited but lint disagrees.
-    xctest.framework = 'XCTest'
-    xctest.xcconfig = { 'OTHER_CFLAGS' => '-DKIF_XCTEST' }
-  end
-
+  s.source_files = 'Lela/**/*.{h,m,mm}'
+  s.dependency 'KIF', '~> 3.3'
 end

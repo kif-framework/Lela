@@ -76,8 +76,9 @@
 
 /* Begin PBXFileReference section */
 		32486E44535747F7A93BEA2C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7917DF38C6A34D56BAE08341 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.xcconfig"; path = "Pods/Pods-DemoTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		364A7C4C764935131E7F5BAA /* Pods-DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		A9F4942A4052C9791DA7509E /* Pods-DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB6AD55723246196BB9072EF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E647C84CE71B475193A88871 /* libPods-DemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB10E941192D438500D519D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EB10E943192D488500D519D8 /* Home screen-320x568@2x~iphone,iOS7.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home screen-320x568@2x~iphone,iOS7.1.png"; path = "../../../../Library/Application Support/iPhone Simulator/7.1/Applications/FAA60D4C-74D4-4770-8DAB-E634CEF4A334/Documents/Lela Tests/2014-05-21T13:42:57/Home screen-320x568@2x~iphone,iOS7.1/Home screen-320x568@2x~iphone,iOS7.1.png"; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		EBF66DE217914C9E002FFA48 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		EBF66DEA17914EF8002FFA48 /* Home screen-320x480@1x~iphone,iOS6.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home screen-320x480@1x~iphone,iOS6.1.png"; sourceTree = "<group>"; };
 		EBF66DEC1791512C002FFA48 /* Entry added-320x480@1x~iphone,iOS6.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Entry added-320x480@1x~iphone,iOS6.1.png"; sourceTree = "<group>"; };
+		FC97442EF4BF506081EDC339 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF4393397EBE7A569CE96890 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB6AD55723246196BB9072EF /* Pods.debug.xcconfig */,
+				FC97442EF4BF506081EDC339 /* Pods.release.xcconfig */,
+				A9F4942A4052C9791DA7509E /* Pods-DemoTests.debug.xcconfig */,
+				364A7C4C764935131E7F5BAA /* Pods-DemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EBF66CD617912360002FFA48 = {
 			isa = PBXGroup;
 			children = (
@@ -177,8 +190,7 @@
 				EBF66DD017914B35002FFA48 /* DemoTests */,
 				EBF66CE117912360002FFA48 /* Frameworks */,
 				EBF66CE017912360002FFA48 /* Products */,
-				7917DF38C6A34D56BAE08341 /* Pods.xcconfig */,
-				906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */,
+				BF4393397EBE7A569CE96890 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -440,7 +452,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFD0F917F7A949ED8D75ACCB /* Check Pods Manifest.lock */ = {
@@ -470,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-DemoTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBF66DC717914B35002FFA48 /* ShellScript */ = {
@@ -620,7 +632,7 @@
 		};
 		EBF66CEE17912360002FFA48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7917DF38C6A34D56BAE08341 /* Pods.xcconfig */;
+			baseConfigurationReference = AB6AD55723246196BB9072EF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Lela.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -632,7 +644,7 @@
 		};
 		EBF66CEF17912360002FFA48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7917DF38C6A34D56BAE08341 /* Pods.xcconfig */;
+			baseConfigurationReference = FC97442EF4BF506081EDC339 /* Pods.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Lela.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -669,7 +681,7 @@
 		};
 		EBF66DDB17914B35002FFA48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */;
+			baseConfigurationReference = A9F4942A4052C9791DA7509E /* Pods-DemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -686,7 +698,7 @@
 		};
 		EBF66DDC17914B35002FFA48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 906AE1457B0240BB8A2C3F6B /* Pods-DemoTests.xcconfig */;
+			baseConfigurationReference = 364A7C4C764935131E7F5BAA /* Pods-DemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 				FRAMEWORK_SEARCH_PATHS = (
