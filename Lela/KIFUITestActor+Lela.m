@@ -11,6 +11,8 @@
 #import "Lela.h"
 #import <XCTest/XCTest.h>
 
+NSString * const LECompareOptionThresholdPixels = @"LECompareOptionThresholdPixels";
+
 @implementation KIFUITestActor (Lela)
 
 + (NSString *)lelaTestRunName
