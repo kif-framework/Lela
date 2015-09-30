@@ -74,3 +74,19 @@ This example assumes you are already familiar with KIF and borrows from the exam
     ```
 
 You will likely want to add some `waitForTimeInterval:` steps if your views take a moment to stablize.
+
+Advanced Usage - Handling Image Blur Variability 
+-------
+
+In some cases there will be minor runtime variability in how some views / images are rendered within your app. 
+This is most noticable when dealing with blurred images. 
+
+To handle this you can specify that Lela should consider the view to match the expected image if no more than X pixels differ.
+
+You can specify this threshold as follows: 
+
+```objc
+        // Test that the login screen looks correct within a threshold
+        NSUInteger numberOfPixelsThatCanDiffer = 100;
+        [tester expectScreenToMatchImageNamed:@"Filled Out Login Screen" options:@{LECompareOptionThresholdPixels : @(numberOfPixelsThatCanDiffer) }];
+```
