@@ -43,6 +43,7 @@
     switch ([UIDevice currentDevice].userInterfaceIdiom) {
         case UIUserInterfaceIdiomPad:   idiom = @"ipad";   break;
         case UIUserInterfaceIdiomPhone: idiom = @"iphone"; break;
+        default: break;
     }
     NSString *version = [[UIDevice currentDevice] systemVersion];
     
@@ -93,7 +94,7 @@
     // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
     CGRect imageRect = [self.class currentScreenBoundsDependOnOrientation];
     CGSize imageSize = imageRect.size;
-    if (NULL != UIGraphicsBeginImageContextWithOptions)
+    if (NULL != &UIGraphicsBeginImageContextWithOptions)
         UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
     else
         UIGraphicsBeginImageContext(imageSize);
