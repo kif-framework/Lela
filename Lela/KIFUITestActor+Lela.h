@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Brian Nickel. All rights reserved.
 //
 
-#import <KIFUITestActor.h>
+#import <KIF/KIFUITestActor.h>
 
 extern NSString * const LECompareOptionThresholdPixels;
 

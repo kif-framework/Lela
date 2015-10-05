@@ -90,15 +90,9 @@
 + (UIImage *)captureScreenshot
 {
     // Create a graphics context with the target size
-    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
-    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
     CGRect imageRect = [self.class currentScreenBoundsDependOnOrientation];
     CGSize imageSize = imageRect.size;
-    if (NULL != &UIGraphicsBeginImageContextWithOptions)
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    else
-        UIGraphicsBeginImageContext(imageSize);
-
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // Iterate over every window from back to front

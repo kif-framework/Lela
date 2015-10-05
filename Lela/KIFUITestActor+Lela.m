@@ -7,7 +7,7 @@
 //
 
 #import "KIFUITestActor+Lela.h"
-#import <NSError-KIFAdditions.h>
+#import <KIF/NSError-KIFAdditions.h>
 #import "Lela.h"
 #import <XCTest/XCTest.h>
 
