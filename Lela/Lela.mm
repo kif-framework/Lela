@@ -61,6 +61,23 @@
     return [[NSBundle bundleForClass:self] resourcePath];
 }
 
++ (NSString *)directoryForExpectedImages_XCTestFallBack
+{
+    static NSString *resourcePath = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Fall back to .xctest bundle
+        for (NSBundle *bundle in [NSBundle allBundles]) {
+            if ([bundle.bundlePath hasSuffix:@".xctest"]) {
+                resourcePath = bundle.bundlePath;
+                break;
+            }
+        }
+    });
+    return resourcePath;
+}
+
+
 + (NSString *)saveImage:(UIImage *)image type:(LelaResultImageType)type named:(NSString *)name testRun:(NSString *)testRun
 {
     NSString *fileName;
@@ -84,6 +101,10 @@
 {
     NSString *fileName = [[self imageNameForScreenNamed:name] stringByAppendingPathExtension:@"png"];
     NSString *filePath = [[self directoryForExpectedImages] stringByAppendingPathComponent:fileName];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        // Fall back to .xctest bundle
+        filePath = [[self directoryForExpectedImages_XCTestFallBack] stringByAppendingPathComponent:fileName];
+    }
     return [UIImage imageWithContentsOfFile:filePath];
 }
 
