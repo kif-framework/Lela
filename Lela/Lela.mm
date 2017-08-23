@@ -99,8 +99,19 @@
 
 + (UIImage *)expectedImageWithName:(NSString *)name
 {
+    return [self expectedImageWithName:name withResourcePath:nil];
+}
+
++ (UIImage *)expectedImageWithName:(NSString *)name withResourcePath:(NSString *)resourcePath
+{
+    NSString *rpath = resourcePath;
+    if (rpath == nil)
+    {
+        rpath = [self directoryForExpectedImages];
+    }
+        
     NSString *fileName = [[self imageNameForScreenNamed:name] stringByAppendingPathExtension:@"png"];
-    NSString *filePath = [[self directoryForExpectedImages] stringByAppendingPathComponent:fileName];
+    NSString *filePath = [rpath stringByAppendingPathComponent:fileName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         // Fall back to .xctest bundle
         filePath = [[self directoryForExpectedImages_XCTestFallBack] stringByAppendingPathComponent:fileName];
