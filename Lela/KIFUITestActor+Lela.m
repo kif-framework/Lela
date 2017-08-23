@@ -12,6 +12,7 @@
 #import <XCTest/XCTest.h>
 
 NSString * const LECompareOptionThresholdPixels = @"LECompareOptionThresholdPixels";
+NSString * const LEOptionCustomResourcePath = @"LEOptionCustomResourcePath";
 
 @implementation KIFUITestActor (Lela)
 
@@ -35,7 +36,7 @@ NSString * const LECompareOptionThresholdPixels = @"LECompareOptionThresholdPixe
 - (void)expectScreenToMatchImageNamed:(NSString *)name options:(NSDictionary *)options
 {
     UIImage *screenshot = [Lela captureScreenshot];
-    UIImage *expectedImage = [Lela expectedImageWithName:name];
+    UIImage *expectedImage = [Lela expectedImageWithName:name withResourcePath:options[LEOptionCustomResourcePath]];
     UIImage *difference = nil;
 
     NSString *runName = [[self class] lelaTestRunName];

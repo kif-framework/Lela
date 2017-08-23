@@ -9,6 +9,7 @@
 #import <KIF/KIFUITestActor.h>
 
 extern NSString * const LECompareOptionThresholdPixels;
+extern NSString * const LEOptionCustomResourcePath;
 
 @interface KIFUITestActor (Lela)
 

@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, LelaResultImageType) {
 
 + (NSString *)saveImage:(UIImage *)image type:(LelaResultImageType)type named:(NSString *)name testRun:(NSString *)testRun;
 + (UIImage *)expectedImageWithName:(NSString *)name;
++ (UIImage *)expectedImageWithName:(NSString *)name withResourcePath:(NSString *)resourcePath;
 + (UIImage *)captureScreenshot;
 + (BOOL)compareExpectedImage:(UIImage *)expected toActual:(UIImage *)actual options:(NSDictionary *)options difference:(UIImage **)difference;
 
